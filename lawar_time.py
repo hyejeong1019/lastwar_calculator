@@ -5,11 +5,11 @@ def get_starttime():
     if 'cur_time' not in st.session_state:
         st.session_state.cur_time = datetime.now().time()
 
-    col1, col2 = st.columns(2)
-    with col1:
+    cols = st.columns(2)
+    with cols[0]:
         # 첫번째 대기자 시작 시간 입력 (기본값은 현재 시간)
-        start_time = st.time_input("첫번째 대기자 시작", value=st.session_state.cur_time)
-    with col2:    
+        start_time = st.time_input("첫번째 대기자 시작 시간", step=60)
+    with cols[1]:    
         # 더할 분 B 입력
         waiting = st.number_input("대기 순서", min_value=0, value=50, step=1)
 
@@ -26,4 +26,3 @@ def get_starttime():
         st.info(f"**익일(다음날) {result_datetime.strftime('%H시 %M분')}** 입니다.")
     else:
         st.info(f"오늘 **{result_datetime.strftime('%H시 %M분')}** 입니다.")
-

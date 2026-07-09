@@ -18,6 +18,8 @@ st.markdown("""
     </style>
 """, unsafe_allow_html=True)
 
+#st.set_page_config(layout="wide")
+
 def get_large_label(label):
     return f'<span style="font-size: 22px; font-weight: bold; color: #1E88E5;">{label}</span>'
 
